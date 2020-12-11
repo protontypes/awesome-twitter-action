@@ -4,7 +4,7 @@ An Github Action that tweets new entries on awesome lists.
 [![](https://img.shields.io/twitter/follow/protontypes?style=social)](https://twitter.com/protontypes) [![](https://img.shields.io/twitter/follow/GHAction1?style=social)](https://twitter.com/GHAction1)
 
 ## Usage
-When the last commit message contains a `https` string a tweet with the commit message will be created.  
+When the last commit message on the main branch contains a `https` string a tweet with these commit message will be created.
 
 ## Github Action
 ```
