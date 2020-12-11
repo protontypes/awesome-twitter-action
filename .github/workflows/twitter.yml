@@ -25,7 +25,7 @@ jobs:
        - name: Create Tweet      
          uses: ethomson/send-tweet-action@v1
          with:
-          status: "Hi, this is a another new test!"
+          status: "Hi, this is a another new automated test!"
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
