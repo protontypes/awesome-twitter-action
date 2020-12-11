@@ -15,17 +15,17 @@ jobs:
                readonly local filter_count=$(echo "$last_commit_log" | grep -c "$COMMIT_FILTER" )
                echo "number of occurence of '$COMMIT_FILTER' in '$last_commit_log': $filter_count"
 
-               if [[ "$filter_count" -eq 0 ]]; then
+               if [[ "$filter_count" -eq 1 ]]; then
                echo "all good, continue"
                else
-               echo "the last commit log \"$last_commit_log\" contains \"$COMMIT_FILTER\", stopping"
+               echo "the last commit log \"$last_commit_log\" contains not \"$COMMIT_FILTER\", stopping"
                exit 78
                fi
                
        - name: Create Tweet      
          uses: ethomson/send-tweet-action@v1
          with:
-          status: "Hi, this is a another new automated test!"
+          status: "Hi, this is a another new better automated test!"
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
