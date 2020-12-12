@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Extract Twitter Message
         run: |
-             cat test | grep -m 1 https* > tweet
+             cat ${{ github.event.head_commit.message }} | grep -m 1 https* > tweet
              read tweet_message < tweet
              echo "::set-env name=tweet_message::$tweet_message"
       - uses: ethomson/send-tweet-action@v1
