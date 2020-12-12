@@ -1,5 +1,5 @@
 # Awesome Twitter Action 
-An Github Action that tweets new entries on awesome lists. 
+An Github Action that tweets new entries on awesome lists.   
 
 [![](https://img.shields.io/twitter/follow/protontypes?style=social)](https://twitter.com/protontypes) [![](https://img.shields.io/twitter/follow/GHAction1?style=social)](https://twitter.com/GHAction1)
 
