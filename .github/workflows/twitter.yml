@@ -1,4 +1,4 @@
-name: Send a Tweet
+name: Send a Tweet from the Commit Message
 on: [push]
 jobs:
   tweet:
