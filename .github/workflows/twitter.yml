@@ -10,7 +10,9 @@ jobs:
               commit_string="${{ github.event.head_commit.message }}"
               echo $commit_string | grep -m 1 https* > tweet
               read tweet_message < tweet
-              echo "::set-env name=tweet_message::$tweet_message"
+              echo $tweet_message
+              echo "tweet_message=$tweet_message" >> $GITHUB_ENV
+
       
       - name: Send Tweet       
         uses: ethomson/send-tweet-action@v1
