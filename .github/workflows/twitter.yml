@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Extract Line with URL as Tweet Message    
         run: |
-              echo -e "${{ github.event.head_commit.message }}" | grep -m 1 https* > read tweet_message
+              printf "${{ github.event.head_commit.message }}" | grep -m 1 https* > read tweet_message
               echo $tweet_message
               echo "tweet_message=$tweet_message" >> $GITHUB_ENV
 
