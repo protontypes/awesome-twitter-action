@@ -1,5 +1,8 @@
-name: Send a Tweet from the Commit Message
-on: [push]
+name: Send URLs from Commit Message as Tweets
+on: 
+  push:
+   branches:
+      - main
 jobs:
   tweet:
     runs-on: ubuntu-latest
@@ -7,12 +10,9 @@ jobs:
     steps:
       - name: Extract Line with URL as Tweet Message  
         run: |
-              commit_string="${{ github.event.head_commit.message }}"
               echo -e "${{ github.event.head_commit.message }}" >> tweet
               tweet_message="$(cat tweet | grep -m 1 https*)"
-              echo $tweet_message
               echo "tweet_message=$tweet_message" >> $GITHUB_ENV
-
       
       - name: Send Tweet       
         uses: ethomson/send-tweet-action@v1
