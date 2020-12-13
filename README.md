@@ -8,16 +8,26 @@ When the last commit message on the main branch contains a `https` string a twee
 
 ## Github Action
 ```
-name: Send a Tweet
-on: [push]
+name: Send URLs from Commit Message as Tweets
+on: 
+  push:
+   branches:
+      - main
 jobs:
   tweet:
     runs-on: ubuntu-latest
     if: "contains(github.event.head_commit.message, 'https')"     
     steps:
-      - uses: ethomson/send-tweet-action@v1
+      - name: Extract Line with URL as Tweet Message  
+        run: |
+              echo -e "${{ github.event.head_commit.message }}" >> tweet
+              tweet_message="$(cat tweet | grep -m 1 https*)"
+              echo "tweet_message=$tweet_message" >> $GITHUB_ENV
+      
+      - name: Send Tweet       
+        uses: ethomson/send-tweet-action@v1
         with:
-          status: ${{ github.event.head_commit.message }}
+          status: ${{ env.tweet_message }}
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
