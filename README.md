@@ -1,5 +1,6 @@
 # Awesome Twitter Action 
 An GitHub Action that tweets new entries on awesome lists. The goal of this project is to inform readers about new projects on an awesome list in an easy way.
+Contributors also have a better way to advertise new projects via the awesome list and can create custom tweet messages. 
 
 ## Implementation
 Check if the last commit message on the main branch contains `https` and creates a tweet based on the corresponding line.
