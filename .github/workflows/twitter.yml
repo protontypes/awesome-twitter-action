@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Extract Line with URL as Tweet Message  
         env: 
-          default_hashtags: "#opensource #protontypes"
+          default_hashtags: " #opensource #protontypes"
         run: |
               echo -e "${{ github.event.head_commit.message }}" >> tweet
               echo $default_hashtags
